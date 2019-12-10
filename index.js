@@ -34,7 +34,7 @@ function isItNorthOrSouthofToronto(city) {
         // console.log(response.results[0].formatted);
         let lat = response.results[0].geometry.lat;
         let answer = lat < TorontoLat ? "South" : "North";
-        $("#result").html(`${city} is ${answer} of Toronto`);
+        $("#result").html(`<h2>${city} is ${answer} of Toronto</h2>`);
       },
       400: function(error) {
         console.log(error);
