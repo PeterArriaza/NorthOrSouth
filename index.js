@@ -9,7 +9,7 @@ function watchSubmit() {
   $("#search").submit(function(event) {
     event.preventDefault();
     var city = $("#city").val();
-    // $("#city").val("");
+    $("#city").val("");
     isItNorthOrSouthofToronto(city);
   });
 }
