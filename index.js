@@ -31,10 +31,18 @@ function isItNorthOrSouthofToronto(city) {
     statusCode: {
       200: function(response) {
         // success
-        // console.log(response.results[0].formatted);
-        let lat = response.results[0].geometry.lat;
-        let answer = lat < TorontoLat ? "South" : "North";
-        $("#result").html(`<h2>${city} is ${answer} of Toronto</h2>`);
+        console.log(response.results[0]);
+        if (response.results[0] === undefined) {
+          $("#result").html(
+            "Oops, something went wrong there. Please try again!"
+          );
+        } else {
+          let lat = response.results[0].geometry.lat;
+          let answer = lat < TorontoLat ? "South" : "North";
+          $("#result").html(
+            `<h2>${response.results[0].formatted} is ${answer} of Toronto</h2>`
+          );
+        }
       },
       400: function(error) {
         console.log(error);
